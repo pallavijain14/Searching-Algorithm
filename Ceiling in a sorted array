@@ -1,0 +1,25 @@
+public class Solution {
+    public int solve(int A, int[] B, int C) {
+       // int n = B.length;
+        int l = 0, h = A-1;
+        int ans = Integer.MAX_VALUE;
+
+        while(l <= h){
+            int mid = (l + h)/2;
+
+            if(B[mid] == C){
+                return B[mid];
+            }else if(B[mid] < C){
+               
+                l = mid + 1;
+            }else{
+                 ans = B[mid];
+                h = mid - 1;
+            }
+        }
+        if(ans == Integer.MAX_VALUE){
+            return -1;
+        }
+        return ans;
+    }
+}
